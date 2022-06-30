@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.function.IntFunction;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -28,11 +31,25 @@ public class DemoApplication {
 //			
 //		};
 		
-		Math sub = (a,b)->{
-			return a - b;
+//		Math sub = (a,b)->{
+//			return a - b;
+//		};
+//		Math multi = (a,b)->{return a * b;};
+//		Math add = (a,b)->a + b;
+//		
+//		System.out.println(add.calc(8, 2));
+//		System.err.println(multi.calc(3, 5));
+//		System.out.println(sub.calc(9, 2));
+		
+		IntFunction<ArrayList<Integer>> getList = (a)->{
+			ArrayList<Integer> list = new ArrayList<>();
+			for(int i=0; i<a; i++) {
+				list.add(100);
+			}
+			return list;
 		};
-		Math multi = (a,b)->{return a * b;};
-		Math add = (a,b)->a + b;
+		
+		System.out.println(getList.apply(5));
 	}
 
 }
